@@ -16,9 +16,9 @@ Esquema do Cenario: Criar reserva
     Entao finalizo minha reserva com sucesso
 
     Exemplos:
-    |      tipos            | disponiveis |   dados   |
-    | One-Bedroom Apartment |     1       | Fall Guys |         
-    | One-Bedroom Apartment |     2       |  Among us |
+    |        tipos          | disponiveis |   dados   |
+    | One-Bedroom Apartment |      1      | Fall Guys |         
+    | One-Bedroom Apartment |      2      | Among us  |
    
 @reservatriple
 Esquema do Cenario: Criar reserva  
@@ -27,9 +27,9 @@ Esquema do Cenario: Criar reserva
     Entao finalizo minha reserva com sucesso
 
     Exemplos:
-    |      tipos   | disponiveis |   dados     |        
-    | Triple Rooms |     1       |  Among us   |
-    | Triple Rooms |     2       | The Witcher |
+    |    tipos     | disponiveis |  dados   |       
+    | Triple Rooms |     1       | Adelmera |
+    | Triple Rooms |     2       | Gabuzera |
 
 @reservafamily
 Esquema do Cenario: Criar reserva  
@@ -39,7 +39,6 @@ Esquema do Cenario: Criar reserva
 
     Exemplos:
     |                 tipos               | disponiveis |   dados     |
-    | Family Room & Twin / Large Superior |     1       | Fall Guys   |         
-    | Family Room & Twin / Large Superior |     2       |  Among us   |
-    | Family Room & Twin / Large Superior |     3       | The Witcher |
-        
+    | Family Room & Twin / Large Superior |      1      | The Witcher |
+    | Family Room & Twin / Large Superior |      2      |  Denizera   |
+    | Family Room & Twin / Large Superior |      3      |  Staguera   |

@@ -5,9 +5,12 @@ class PHPTravels < SitePrism::Page
     element :destination, :xpath, '(//*[@*="text"])[1]'
     element :selhotel, :xpath, '(//*[@*="select2-result-label"])[2]'
     element :search, :xpath, '(//*[@*="submit"])[1]'
-    element :selectroom, :xpath, '(//*[@*="custom-control custom-checkbox"])[1]'
-    element :selroom, 'select[name="roomscount[17]"]'
-    element :numroom, :xpath, '(//*[@*="1"])[4]'
+    element :selectroomone, :xpath, '(//*[@*="custom-control custom-checkbox"])[1]'
+    element :selectroomtriple, :xpath, '(//*[@*="custom-control custom-checkbox"])[2]'
+    element :selectroomfamily, :xpath, '(//*[@*="custom-control custom-checkbox"])[3]'
+    element :selroomone, '*[name="roomscount[17]"]'
+    element :selroomtriple, '*[name="roomscount[16]"]'
+    element :selroomfamily, '*[name="roomscount[11]"]'
     element :oneroom, :xpath, '(//*[@*="javascript:void(0);"])[14]'
     element :tripleroom, :xpath, '(//*[@*="javascript:void(0);"])[15]'
     element :familyroom, :xpath, '(//*[@*="javascript:void(0);"])[16]'
@@ -17,14 +20,16 @@ class PHPTravels < SitePrism::Page
     element :email, '*[name="email"]'
     element :mailconf, '*[name="confirmemail"]'
     element :phone, '*[name="phone"]'
-    element :address, '*[name="address"]' #Text
-    element :country, '*[class="chosen-single"]' #Select
-    element :confirmbooking, '*[name="guest"]' #click
+    element :address, '*[name="address"]'
+    element :country, '*[class="chosen-container chosen-container-single"]' 
+    element :selcountry, '*[class="chosen-search-input"]' 
+    element :entercountry, '*[class="chosen-results"]' 
+    element :confirmbooking, '*[name="guest"]'
     # --------------------------------------------------------------#
 
     
   def initialize
-    # Faker::Config.locale = 'pt-BR'
+    Faker::Config.locale = 'pt-BR'
     @cpf = Faker::CPF.numeric
     @nome = Faker::Games::Zelda.location
     @telnumero = Faker::PhoneNumber.phone_number
@@ -40,7 +45,6 @@ class PHPTravels < SitePrism::Page
     @bairro = Faker::Address.community
     @pais = Faker::Address.country
     @senha = Faker::Number.number(digits: 6)
-
   end
 
   def select_hotel(hotel)
@@ -54,7 +58,9 @@ class PHPTravels < SitePrism::Page
     mailconf.set @confemail
     phone.set @telefone
     address.set @logradouro
-    country.set @pais
+    country.click
+    selcountry.set @pais
+    entercountry.click
   end
 
 end
